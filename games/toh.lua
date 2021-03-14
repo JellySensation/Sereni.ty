@@ -15,7 +15,6 @@ local tp = game:GetService("TeleportService")
 
 function m:Init(winn)
     win = winn
-    spawn(function()
         local im = win:Tab('AutoFarm')
 
         local autofarm = im:Button('AutoFarm',function()
@@ -31,7 +30,6 @@ function m:Init(winn)
             syn.queue_on_teleport(loadstring(game:HttpGetAsync('https://pastebin.com/raw/2JWbxTQp',true))())
             ServerHop()
         end)
-    end)
 end
 
 function ServerHop()
