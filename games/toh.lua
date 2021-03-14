@@ -15,7 +15,23 @@ local tp = game:GetService("TeleportService")
 
 function m:Init(winn)
     win = winn
-    run()
+    spawn(function()
+        local im = win:Tab('AutoFarm')
+
+        local autofarm = im:Button('AutoFarm',function()
+            for i,v in pairs(sections:GetChildren()) do
+                if v.Name =='finish' or 'start' then return end
+
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.start
+                wait(2)
+            end
+
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = teleports.finish
+            
+            syn.queue_on_teleport(loadstring(game:HttpGetAsync('https://pastebin.com/raw/2JWbxTQp',true))())
+            ServerHop()
+        end)
+    end)
 end
 
 function ServerHop()
@@ -30,25 +46,6 @@ function ServerHop()
         return ts[math.random(1,#ts)]
     end
     tp:TeleportToPlaceInstance(game.PlaceId, RandomServer().id)
-end
-
-function run()
-
-    local im = win:Tab('AutoFarm')
-
-    local autofarm = im:Button('AutoFarm',function()
-        for i,v in pairs(sections:GetChildren()) do
-            if v.Name =='finish' or 'start' then return end
-
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.start
-            wait(2)
-        end
-
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = teleports.finish
-    
-        syn.queue_on_teleport(loadstring(game:HttpGetAsync('https://pastebin.com/raw/2JWbxTQp',true))())
-        ServerHop()
-    end)
 end
 
 return m
