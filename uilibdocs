@@ -1,0 +1,56 @@
+local test = Lib:Tab('idk', Color3.new(0,200,255))
+
+local tab = test:Tab('oop')
+
+tab:Dropdown("Pick thing" , {'thing','blahblah'}, function(thing)
+    print(thing)
+end)
+
+tab:Button("Do thing", function()
+    print("hi yes")
+end)
+
+tab:Toggle("Toggle thing", function(thing)
+    print(thing)
+end)
+
+tab:Slider("Slide thing", 0, 50, 25, function(thing)
+    print(thing)
+end)
+
+tab:Textbox("Write thing", false, function(thing)
+    print(thing)
+end)
+
+
+DOCS:
+
+Lib:Window(String text, Color3 accent)
+    - Creates a Window with the specified accent (tab color, etc.).
+
+Window:Tab(String text)
+    - Creates a Tab in the specified Window.
+
+Tab:Dropdown(String text, Array list, Function callback)
+    - Creates a dropdown in the specified Tab with the specified text and list of items with a callback.
+
+Tab:Button(String text, Function callback)
+    - Creates a button in the specified Tab with a callback.
+
+Tab:Toggle(String text, Function callback)
+    - Creates a toggle in the specified Tab and gives out a boolean.
+
+Tab:Slider(String text, Int min, Int max, Int start, Function callback)
+    - Creates a slider in the specified Tab with a min and max and start at the specified (Int start) postition on the slider with a callback.
+
+Tab:Colorpicker(String text, Color3 preset, Function callback)
+    - Creates a colorpicker in the specified Tab with specified Color3 to start at.
+
+Tab:Textbox(String text, Boolean disapper, Function callback)
+    - Creates a textbox in the specified Tab.
+
+Tab:Label(String text)
+    - Creates a label in the specified Tab.
+
+Tab:Keybind(String text, Enum.KeyCode presetbind, Function callback)
+    - Creates a keybind in the specified Tab with a callback that will react when the (Enum.KeyCode) will be pressed.
