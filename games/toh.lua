@@ -29,6 +29,7 @@ return function(win)
     local im = win:Tab('AutoFarm')
 
             local autofarm = im:Button('AutoFarm',function ()
+                print('starting')
                 for i,v in pairs(sections:GetChildren()) do
                     if v.Name =='finish' or 'start' then return end
 
