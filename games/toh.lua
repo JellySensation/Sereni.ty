@@ -31,7 +31,7 @@ return function(win)
             local autofarm = im:Button('AutoFarm',function ()
                 print('starting')
                 for i,v in pairs(sections:GetChildren()) do
-                    if v.Name =='finish' or 'start' then return end
+                    if v.Name =='finish' or 'start' then continue; end
 
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.start
                     wait(2)
