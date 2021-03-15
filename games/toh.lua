@@ -31,7 +31,7 @@ return function(win)
     local autofarm = im:Button('AutoFarm',function ()
         print('starting')
         for i,v in pairs(sections:GetChildren()) do
-            if v.start then 
+            if v.start ~= nil then 
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.start.CFrame
                 wait(2)
             else
