@@ -32,7 +32,7 @@ return function(win)
         print('starting')
         for i,v in pairs(sections:GetChildren()) do
             if v.Name =='finish' or 'start' then else
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.start
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.start.CFrame
                 wait(2)
             end
         end
