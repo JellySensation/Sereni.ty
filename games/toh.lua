@@ -31,9 +31,11 @@ return function(win)
     local autofarm = im:Button('AutoFarm',function ()
         print('starting')
         for i,v in pairs(sections:GetChildren()) do
-            if v.Name =='finish' or 'start' then else
+            if v.start then 
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.start.CFrame
                 wait(2)
+            else
+                print[[skipping]]
             end
         end
 
