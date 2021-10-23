@@ -1,4 +1,4 @@
-local test = Lib:Tab('idk', Color3.new(0,200,255))
+local test = Lib:Window('idk', Color3.new(0,200,255))
 
 local tab = test:Tab('oop')
 

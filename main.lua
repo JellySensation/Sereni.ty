@@ -5,7 +5,8 @@ local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/freegamer
 _G.VERSION = 'v0.0.1'
 
 local games = {
-    [703124385] = 'toh' -- Tower Of Hell
+    [703124385] = 'https://raw.githubusercontent.com/freegamerskids/Sereni.ty/main/games/toh.lua', -- Tower Of Hell
+    [6284583030] = 'https://raw.githubusercontent.com/freegamerskids/Sereni.ty/main/games/petsimx.lua', -- Pet Simulator X
 }
 
 local pg = games[game['GameId']]
@@ -13,5 +14,5 @@ local pg = games[game['GameId']]
 local win = lib:Window('Sereni.ty', Color3.new(1, 0, 0))
 
 if pg == nil then return game.Players.LocalPlayer:Kick('not coolio') else
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/freegamerskids/Sereni.ty/main/games/'..pg..'.lua', true))()(win)
+    loadstring(game:HttpGetAsync(pg, true))(win)
 end
