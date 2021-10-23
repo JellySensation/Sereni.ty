@@ -41,7 +41,7 @@ return function(win)
 
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = teleports.finish
                 
-        syn.queue_on_teleport(loadstring(game:HttpGetAsync('https://pastebin.com/raw/2JWbxTQp',true))())
+        syn.queue_on_teleport(loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/freegamerskids/Sereni.ty/main/games/@toh/autofarm.lua',true))())
         ServerHop()
     end)
 end
