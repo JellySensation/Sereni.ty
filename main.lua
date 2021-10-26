@@ -15,5 +15,5 @@ local pg = games[game['GameId']]
 local win = lib:Window('Sereni.ty', Color3.new(1, 0, 0))
 
 if pg == nil then return game.Players.LocalPlayer:Kick('not coolio') else
-    loadstring(game:HttpGetAsync(pg, true))(win)
+    loadstring(game:HttpGetAsync(pg, true))():Init(win)
 end

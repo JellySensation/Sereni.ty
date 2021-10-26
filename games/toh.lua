@@ -1,4 +1,6 @@
-return function(win)
+local m = {}
+
+function m:Init(win)
     local tower = workspace.tower
     local sections = tower.sections
 
@@ -45,3 +47,5 @@ return function(win)
         ServerHop()
     end)
 end
+
+return m
