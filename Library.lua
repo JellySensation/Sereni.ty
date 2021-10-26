@@ -1453,6 +1453,14 @@ function Lib:Window(text, accent)
             LabelCorner.Parent = Label
 
             ContainerItemHolder.CanvasSize = UDim2.new(0, 0, 0, ItemHolderList.AbsoluteContentSize.Y)
+            local LabelEdit = {}
+            function LabelEdit:Edit(newtext)
+                Label.Text = newtext
+            end
+            function LabelEdit:ChangeTextColor(color)
+                Label.TextColor3 = color
+            end
+            return LabelEdit
         end
 
         function TabItems:Keybind(text, presetbind, callback)
