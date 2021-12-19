@@ -22,4 +22,5 @@ if pg == nil then
     loadstring(game:HttpGetAsync(r('universal'), true))():Init(win)
 else
     loadstring(game:HttpGetAsync(pg, true))():Init(win)
+    loadstring(game:HttpGetAsync(r('universal'), true))():Init(win)
 end
