@@ -1,4 +1,8 @@
-local hrp = workspace[game.Players.LocalPlayer.Name]:WaitForChild("HumanoidRootPart") -- HumanoidRootPart
+local ops = game:GetService("Players") -- Other plays
+local p = game:GetService("Players").LocalPlayer -- Player
+local char = p.Character -- Character
+local hum = char:WaitForChild("Humanoid") -- Humanoid
+local hrp = char:WaitForChild("HumanoidRootPart") -- HumanoidRootPart
 local uis = game:GetService("UserInputService") -- UserInputService
 local rep = game:GetService("ReplicatedStorage") -- ReplicatedStorage --
 local ts = game:GetService("TweenService") -- Tweenservice
@@ -6,8 +10,8 @@ local rs = game:GetService("RunService") -- Runservice
 local core = game:GetService("CoreGui") -- Coregui
 local mouse = p:GetMouse() -- local players mouse
 local cc = workspace.CurrentCamera -- players camera
-local http = game:GetService("HttpService") -- web service
-local tp = game:GetService("TeleportService") -- teleport service
+local http = game:GetService("HttpService")
+local tp = game:GetService("TeleportService")
 
 local m = {}
 
