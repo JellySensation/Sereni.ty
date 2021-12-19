@@ -206,13 +206,15 @@ local function nameprotect(tab)
 		name = n
 	end)
 	
-	game:GetService('RunService').Heartbeat:Connect(function()
-		if not enabled then return end
-		for i,v in pairs(game:GetDescendants()) do
-			if not v:IsA('TextLabel') or not v:IsA('TextBox') then continue; end
-			v.Text = v.Text:gsub(p.Name, name)
+	while wait() do
+		while enabled do
+			for i,v in pairs(game:GetDescendants()) do
+				if not v:IsA('TextLabel') or not v:IsA('TextBox') then continue; end
+				v.Text = v.Text:gsub(p.Name, name)
+			end
+			wait()
 		end
-	end)
+	end
 end
 
 function m:Init(win)
