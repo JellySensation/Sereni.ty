@@ -1,11 +1,11 @@
 repeat wait() until game:IsLoaded()
 
-local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/freegamerskids/Sereni.ty/main/Library.lua',true))()
+local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/Library.lua',true))()
 
 _G.VERSION = 'v0.0.1'
 
 function r(sName)
-    return 'https://raw.githubusercontent.com/freegamerskids/Sereni.ty/main/games/'..sName..'.lua'
+    return 'https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/games/'..sName..'.lua'
 end
 
 local games = {
