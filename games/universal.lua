@@ -1,4 +1,4 @@
-local hrp = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") -- HumanoidRootPart
+local hrp = workspace[game.Players.LocalPlayer.Name]:WaitForChild("HumanoidRootPart") -- HumanoidRootPart
 local uis = game:GetService("UserInputService") -- UserInputService
 local rep = game:GetService("ReplicatedStorage") -- ReplicatedStorage --
 local ts = game:GetService("TweenService") -- Tweenservice
