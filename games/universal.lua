@@ -198,6 +198,7 @@ local function makeesp(set)
 local function nameprotect(tab)
 	local enabled = false
 	local name = "NameProtected"
+	local c_name = p.Name
     tab:Toggle('Enable',function(t)
         enabled = t
     end)
@@ -211,14 +212,14 @@ local function nameprotect(tab)
 			while enabled do
 				for i,v in pairs(game:GetDescendants()) do
 					if v:IsA('TextLabel') or v:IsA('TextBox') then 
-						v.Text = v.Text:gsub(p.Name, name)
+						v.Text = v.Text:gsub(c_name, name)
 					end
 				end
+				c_name = name
 				wait(10)
 			end
 		end
 	end)
-	
 end
 
 function m:Init(win)
