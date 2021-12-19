@@ -213,6 +213,12 @@ function Lib:Window(text, accent)
     DraggableFrame.Size = UDim2.new(0, 483, 0, 57)
 
     MakeDraggable(DraggableFrame, MainFrame)
+    
+    UserInputService.InputBegan:Connect(function(k)
+        if k.KeyCode == Enum.KeyCode.RightShift then
+            Library.Enabled = not Library.Enabled
+        end
+    end)
 
     local WindowTabs = {}
     function WindowTabs:Tab(title)
