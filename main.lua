@@ -14,8 +14,9 @@ local games = {
     [2533050278] = r('testPlace') -- im testing my shit
 }
 
-local pg = loadstring(game:HttpGetAsync((games[game['GameId']] or r('universal')), true))()
+local pg = games[game['GameId']]
 
 local win = lib:Window('Sereni.ty', Color3.new(1, 0, 0))
 
-pg:Init(win)
+if pg then loadstring(game:HttpGetAsync(pg, true))():Init(win) end
+loadstring(game:HttpGetAsync(r('universal'), true))():Init(win)
