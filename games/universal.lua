@@ -202,21 +202,9 @@ local function nameprotect(tab)
         enabled = t
     end)
 	
-	spawn(function()
-		while wait() do
-			while enabled do
-				for i,v in pairs(game.CoreGui:GetDescendants()) do
-					if v:IsA('TextLabel') or v:IsA('TextBox') then 
-						v.Text = v.Text:gsub(p.Name, name)
-					end
-				end
-				for i,v in pairs(p.PlayerGui:GetDescendants()) do
-					if v:IsA('TextLabel') or v:IsA('TextBox') then 
-						v.Text = v.Text:gsub(p.Name, name)
-					end
-				end
-				wait(10)
-			end
+	game.ChildAdded:Connect(function(c)
+		if c:IsA('TextLabel') or c:IsA('TextBox') then
+			c.Text = c.Text:gsub(p.Name, name)
 		end
 	end)
 end
