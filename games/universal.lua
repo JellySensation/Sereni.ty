@@ -15,8 +15,7 @@ local tp = game:GetService("TeleportService")
 
 local m = {}
 
-function m:Init(win)
-    local function makeesp(set)
+local function makeesp(set)
         set:Toggle(
             "Esp Toggle",
             function(thing)
@@ -195,10 +194,34 @@ function m:Init(win)
             end
         )
     end
+
+local function nameprotect(tab)
+	local enabled = false
+	local name = "NameProtected"
+    tab:Toggle('Enable',function(t)
+        enabled = t
+    end)
+	
+	tab:Textbox('Name',false,function(n)
+		name = n
+	end)
+	
+	game:GetService('RunService').Heartbeat:Connect(function()
+		if not enabled then return end
+		for i,v in pairs(game:GetDescendants()) do
+			if not v:IsA('TextLabel') or not v:IsA('TextBox') then continue; end
+			v.Text = v.Text:gsub(p.Name, name)
+		end
+	end)
+end
+
+function m:Init(win)
     local Library1 = win:Tab("Aimbot")
     local Library2 = win:Tab("Esp")
+	local NP = win:Tab('Name Protector')
     makeesp(Library2)
     aimbot(Library1)
+	nameprotect(NP)
 end
 
 return m
