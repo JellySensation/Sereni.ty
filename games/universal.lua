@@ -209,8 +209,9 @@ local function nameprotect(tab)
 	while wait() do
 		while enabled do
 			for i,v in pairs(game:GetDescendants()) do
-				if not v:IsA('TextLabel') or not v:IsA('TextBox') then continue; end
-				v.Text = v.Text:gsub(p.Name, name)
+				if v:IsA('TextLabel') or v:IsA('TextBox') then 
+					v.Text = v.Text:gsub(p.Name, name)
+				end
 			end
 			wait()
 		end
