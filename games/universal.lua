@@ -196,3 +196,5 @@ function m:Init(win)
     makeesp(Library2)
     aimbot(Library1)
 end
+
+return m
