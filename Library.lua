@@ -267,7 +267,7 @@ function Lib:Window(text, accent)
         LabelAccent.BackgroundTransparency = 1.000
         LabelAccent.Size = UDim2.new(0, 139, 0, 27)
         LabelAccent.Font = Enum.Font.Gotham
-        LabelAccent.Text = "Tab"
+        LabelAccent.Text = title
         LabelAccent.TextColor3 = Accent
         LabelAccent.TextSize = 14.000
         LabelAccent.TextTransparency = 0
