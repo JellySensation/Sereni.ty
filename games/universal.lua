@@ -28,13 +28,9 @@ local function makeesp(set)
             ffatoggle = thing
         end
     )
-    set:Dropdown(
-        "Esp Color",
-        {"Green", "Blue", "Red", "Yellow"},
-        function(thing)
-            espcolor = thing
-        end
-    )
+    set:Colorpicker('Esp Color', Color3.fromRGB(255,255,255), function(col)
+        espcolor = col
+    end)
     local function esp(hook, name, namecheck)
         repeat
             wait()
@@ -68,15 +64,7 @@ local function makeesp(set)
                             else
                                 espset.Visible = false
                             end
-                            if espcolor == "Green" then
-                                espset.Color = BrickColor.new("Bright green")
-                            elseif espcolor == "Blue" then
-                                espset.Color = BrickColor.new("Bright blue")
-                            elseif espcolor == "Red" then
-                                espset.Color = BrickColor.new("Bright red")
-                            elseif espcolor == "Yellow" then
-                                espset.Color = BrickColor.new("Bright yellow")
-                            end
+                            espset.Color = espcolor
                         end
                     end
                 )
@@ -156,25 +144,9 @@ local function aimbot(set)
             FOV.Radius = thing
         end
     )
-    set:Dropdown(
-        "FOV Color",
-        {"Black", "White", "Green", "Blue", "Red", "Yellow"},
-        function(thing)
-            if espcolor == "Black" then
-                FOV.Color = Color3.fromRGB(0, 0, 0)        
-            elseif espcolor == "White" then
-                FOV.Color = Color3.fromRGB(255, 255, 255)          
-            elseif espcolor == "Green" then
-                FOV.Color = Color3.fromRGB(0, 255, 0)
-            elseif espcolor == "Blue" then
-                FOV.Color = Color3.fromRGB(0, 0, 255)
-            elseif espcolor == "Red" then
-                FOV.Color = Color3.fromRGB(255, 0, 0)
-            elseif espcolor == "Yellow" then
-                FOV.Color = Color3.fromRGB(225, 255, 0)
-            end
-        end
-    )
+    set:Colorpicker('FOV Color', Color3.fromRGB(255,255,255), function(col)
+        FOV.Color = col
+    end)
     local function GetClosest(trackpart)
         local Distance = math.huge
         local T
