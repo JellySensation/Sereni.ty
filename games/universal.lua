@@ -156,6 +156,25 @@ local function aimbot(set)
             FOV.Radius = thing
         end
     )
+    set:Dropdown(
+        "FOV Color",
+        {"Black", "White", "Green", "Blue", "Red", "Yellow"},
+        function(thing)
+            if espcolor == "Black" then
+                FOV.Color = Color3.fromRGB(0, 0, 0)        
+            elseif espcolor == "White" then
+                FOV.Color = Color3.fromRGB(255, 255, 255)          
+            elseif espcolor == "Green" then
+                FOV.Color = Color3.fromRGB(0, 255, 0)
+            elseif espcolor == "Blue" then
+                FOV.Color = Color3.fromRGB(0, 0, 255)
+            elseif espcolor == "Red" then
+                FOV.Color = Color3.fromRGB(255, 0, 0)
+            elseif espcolor == "Yellow" then
+                FOV.Color = Color3.fromRGB(225, 255, 0)
+            end
+        end
+    )
     local function GetClosest(trackpart)
         local Distance = math.huge
         local T
