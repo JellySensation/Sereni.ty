@@ -1,8 +1,18 @@
 repeat wait() until game:IsLoaded()
 
+local uis = game:GetService'UserInputService'
 local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/Library.lua',true))()
+local log = loadstring(game:HttpGet('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/Library.lua',true))():Init()
+local print, warn, error = log.print, log.warn, log.error
 
 _G.VERSION = 'v0.0.1'
+
+uis.InputBegan:Connect(function(k)
+	local kc = k.KeyCode
+	if kc == Enum.KeyCode.RightControl then
+		log:Enable()
+	end
+end)
 
 function r(sName)
     return 'https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/games/'..sName..'.lua'
