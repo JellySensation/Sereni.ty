@@ -34,6 +34,7 @@ function init()
   logger.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
   logger.DisplayOrder = 9999999
   logger.ResetOnSpawn = false
+	logger.Enabled = false
 
   main.Name = "main"
   main.Parent = logger
@@ -147,6 +148,10 @@ function init()
     log.RichText = rich or false
   end
 
+	function m:Enable()
+		logger.Enabled = not logger.Enabled
+	end
+	
   return m
 end
 
