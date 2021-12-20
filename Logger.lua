@@ -6,6 +6,63 @@ local UIListLayout = Instance.new("UIListLayout")
 local name = Instance.new("TextLabel")
 local exit = Instance.new("TextButton")
 
+local function MakeDraggable(topbarobject, object)
+  local Dragging = nil
+  local DragInput = nil
+  local DragStart = nil
+  local StartPosition = nil
+
+  local function Update(input)
+      local Delta = input.Position - DragStart
+      local pos =
+          UDim2.new(
+          StartPosition.X.Scale,
+          StartPosition.X.Offset + Delta.X,
+          StartPosition.Y.Scale,
+          StartPosition.Y.Offset + Delta.Y
+      )
+      local Tween = TweenService:Create(object, TweenInfo.new(0.2), {Position = pos})
+      Tween:Play()
+  end
+
+  topbarobject.InputBegan:Connect(
+      function(input)
+          if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              Dragging = true
+              DragStart = input.Position
+              StartPosition = object.Position
+
+              input.Changed:Connect(
+                  function()
+                      if input.UserInputState == Enum.UserInputState.End then
+                          Dragging = false
+                      end
+                  end
+              )
+          end
+      end
+  )
+
+  topbarobject.InputChanged:Connect(
+      function(input)
+          if
+              input.UserInputType == Enum.UserInputType.MouseMovement or
+                  input.UserInputType == Enum.UserInputType.Touch
+           then
+              DragInput = input
+          end
+      end
+  )
+
+  UserInputService.InputChanged:Connect(
+      function(input)
+          if input == DragInput and Dragging then
+              Update(input)
+          end
+      end
+  )
+end
+
 local function numberWithZero(num)
 	return (num < 10 and "0" or "") .. num
 end
@@ -91,7 +148,12 @@ function init()
   exit.Text = "X"
   exit.TextColor3 = Color3.fromRGB(255, 255, 255)
   exit.TextSize = 14.000
-  
+  exit.MouseButton1Down:Connect(function()
+    logger.Enabled = not logger.Enabled
+  end)
+
+  MakeDraggable(main,main)
+
   local m = {}
 
   function m.print(msg:string,rich:boolean?)
