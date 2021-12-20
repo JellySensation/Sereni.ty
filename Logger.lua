@@ -5,6 +5,8 @@ local logs = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local name = Instance.new("TextLabel")
 local exit = Instance.new("TextButton")
+local UserInputService = game:GetService'UserInputService'
+local TweenService = game:GetService'TweenService'
 
 local function MakeDraggable(topbarobject, object)
   local Dragging = nil
