@@ -29,10 +29,6 @@ local pg = games[game['GameId']]
 
 local win = lib:Window('Sereni.ty', Color3.new(1, 0, 0))
 
-print('<b>Executing scripts<b>',true)
-print'test'
-warn'test'
-error'test'
-
+print('Executing scripts')
 if pg ~= nil then loadstring(game:HttpGetAsync(pg, true))():Init(win) end
 loadstring(game:HttpGetAsync(r('universal'), true))():Init(win)
