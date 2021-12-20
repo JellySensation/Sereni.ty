@@ -8,7 +8,7 @@ local exit = Instance.new("TextButton")
 local UserInputService = game:GetService'UserInputService'
 local TweenService = game:GetService'TweenService'
 
-local function MakeDraggable(topbarobject, object)
+local function MakeDraggable(topbarobject:Frame, object:Frame)
   local Dragging = nil
   local DragInput = nil
   local DragStart = nil
