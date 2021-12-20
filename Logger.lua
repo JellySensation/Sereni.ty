@@ -97,6 +97,8 @@ function init()
     logger.Enabled = not logger.Enabled
   end)
 
+  main.Selectable = true
+  main.Active = true
   main.Draggable = true
 
   local m = {}
