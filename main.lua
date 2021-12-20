@@ -2,10 +2,11 @@ repeat wait() until game:IsLoaded()
 
 local uis = game:GetService'UserInputService'
 local lib = loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/Library.lua',true))()
-local log = loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/util/Logger.lua',true))():Init()
+local logl = loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/Logger.lua',true))()
+local log = logl:Init()
 local print, warn, error = log.print, log.warn, log.error
 
-_G.VERSION = 'v0.0.1'
+_G.VERSION = 'v0.0.2'
 
 uis.InputBegan:Connect(function(k)
 	local kc = k.KeyCode
