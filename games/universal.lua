@@ -174,9 +174,16 @@ local function aimbot(set)
                     local sp = cc:WorldToScreenPoint(v.Character:WaitForChild("HumanoidRootPart", math.huge).Position)
                     local vd =
                         (Vector2.new(uis:GetMouseLocation().X, uis:GetMouseLocation().Y) - Vector2.new(sp.X, sp.Y)).Magnitude
-                    if mag < Distance and vd < FOV.Radius then
-                        Distance = mag
-                        T = v
+                    if FOV.Visible == true then
+                        if mag < Distance and vd < FOV.Radius then
+                            Distance = mag
+                            T = v
+                        end
+                    else
+                        if mag < Distance then
+                            Distance = mag
+                            T = v
+                        end
                     end
                 elseif freeforall == false or freeforall == nil and v.TeamColor ~= p.TeamColor then
                     local TPerson = cc.WorldToViewportPoint(cc, v.Character[trackpart].Position)
@@ -184,9 +191,16 @@ local function aimbot(set)
                     local sp = cc:WorldToScreenPoint(v.Character:WaitForChild("HumanoidRootPart", math.huge).Position)
                     local vd =
                         (Vector2.new(uis:GetMouseLocation().X, uis:GetMouseLocation().Y) - Vector2.new(sp.X, sp.Y)).Magnitude
-                    if mag < Distance and vd < FOV.Radius then
-                        Distance = mag
-                        T = v
+                    if FOV.Visible == true then
+                        if mag < Distance and vd < FOV.Radius then
+                            Distance = mag
+                            T = v
+                        end
+                    else
+                        if mag < Distance then
+                            Distance = mag
+                            T = v
+                        end
                     end
                 end
             end
