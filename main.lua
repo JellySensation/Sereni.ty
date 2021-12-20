@@ -1,8 +1,8 @@
 repeat wait() until game:IsLoaded()
 
 local uis = game:GetService'UserInputService'
-local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/Library.lua',true))()
-local log = loadstring(game:HttpGet('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/util/Logger.lua',true))():Init()
+local lib = loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/Library.lua',true))()
+local log = loadstring(game:HttpGetAsync('https://raw.githubusercontent.com/serenity-hub/Sereni.ty/main/util/Logger.lua',true))():Init()
 local print, warn, error = log.print, log.warn, log.error
 
 _G.VERSION = 'v0.0.1'
